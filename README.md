@@ -1,11 +1,11 @@
 # Name
 
-Description
+Easily convert a callback-based function to a promise in TypeScript
 
 # Installation
 
 ```sh
-npm i --save node-module-template
+npm i --save callback-then
 ```
 
 # Usage
@@ -14,9 +14,37 @@ npm i --save node-module-template
 
 ```js
 // esm
-import nmt from 'node-module-template`
+import toPromise from 'callback-then`
 // commonjs
-const nmt = require('node-module-template')
+const toPromise = require('callback-then').default
+```
+
+#### Example Usage
+
+```js
+import toPromise from 'callback-then`
+
+const result = await toPromise(cb => {
+  setTimeout(() => cb(null, 'success'), 10)
+}) // resolves to 'success'
+
+await toPromise(cb => {
+  setTimeout(() => cb(), 10)
+}) // resolves undefined
+
+await toPromise(cb => {
+  setTimeout(() => cb(new Error('boom')), 10)
+}) // rejects with Error: boom
+```
+
+#### TypeScript Example Usage
+
+```ts
+import toPromise from 'callback-then`
+
+const result = await toPromise<string>(cb => {
+  setTimeout(() => cb(null, 10), 10)
+}) // resolves to 'success' and type is a string
 ```
 
 # License
