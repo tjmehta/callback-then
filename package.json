@@ -1,6 +1,6 @@
 {
   "name": "callback-then",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "easily convert a callback function to a promise in typescript",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
