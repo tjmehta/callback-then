@@ -1,4 +1,4 @@
-# Name
+# callback-then
 
 Easily convert a callback-based function to a promise in TypeScript
 
